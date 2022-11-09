@@ -13,6 +13,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                form.reset();
             })
             .catch(error => console.log(error))
 
@@ -20,8 +21,8 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="card-body">
+        <div className='w-1/2 mx-auto border rounded-lg p-5' >
+            <form onSubmit={handleSubmit} className="card-body  bg-slate-300 mb-3 rounded">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Email</span>
@@ -38,10 +39,10 @@ const Login = () => {
                     </label>
                 </div>
                 <div className="form-control mt-6">
-                    <input className="btn btn-primary" type="submit" value="Login" />
+                    <input className="btn bg-purple-400 border-none" type="submit" value="Login" />
                 </div>
             </form>
-            <p className='text-center'> New to Genious car <Link className='text-orange-600 font-bold ' to='/signup'>Sign Up</Link></p>
+            <p className='text-center'> New to this website <Link className='text-orange-600 font-bold ' to='/signup'>Sign Up</Link></p>
 
         </div>
     );
