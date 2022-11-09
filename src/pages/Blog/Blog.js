@@ -2,9 +2,9 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='w-3/4 mx-auto'>
-            <div>
-                <h1 className='text-2xl'><strong> Question-01:</strong> Difference between SQL and NoSQL</h1>
+        <div className='w-3/4 mx-auto '>
+            <div className='border-solid border-2 border-sky-500 p-10'>
+                <h1 className='text-2xl '><strong> Question-01:</strong> Difference between SQL and NoSQL</h1>
                 <p> <strong>Answer:</strong> <br />
                     <strong>SQL:</strong><br />
                     1.RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS) <br />
@@ -21,7 +21,7 @@ const Blog = () => {
                 </p>
             </div>
 
-            <div>
+            <div className='border-solid border-2 border-sky-500 p-10  mt-5'>
                 <h1 className='text-2xl'><strong> Question-02:</strong> What is JWT, and how does it work?</h1>
                 <p> <strong>Answer:</strong> <br />
                     JSON Web Token (JWT) is an open standard (RFC 7519) for securely transmitting information between parties as JSON object.
@@ -33,7 +33,7 @@ const Blog = () => {
                     JWT is a token based stateless authentication mechanism. Since it is a client-side based stateless session, server doesn't have to completely rely on a datastore(database) to save session information.
                 </p>
             </div>
-            <div>
+            <div className='border-solid border-2 border-sky-500 p-10  mt-5'>
                 <h1 className='text-2xl'><strong> Question-03:</strong>  What is the difference between javascript and NodeJS?</h1>
                 <p> <strong>Answer:</strong> <br />
                     <strong>javascript:</strong><br />
@@ -51,7 +51,7 @@ const Blog = () => {
                 </p>
             </div>
 
-            <div>
+            <div className='border-solid border-2 border-sky-500 p-10 mt-5'>
                 <h1 className='text-2xl'><strong> Question-04:</strong>  How does NodeJS handle multiple requests at the same time?</h1>
                 <p> <strong>Answer:</strong> <br />
                     NodeJS receives multiple client requests and places them into EventQueue. NodeJS is built with the concept of event-driven architecture. NodeJS has its own EventLoop which is an infinite loop that receives requests and processes them. EventLoop is the listener for the EventQueue.
