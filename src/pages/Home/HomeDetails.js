@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const ServiceCard = ({ service }) => {
+const HomeDetails = ({ service }) => {
 
     const { name, image, _id, rating, price, details } = service
 
@@ -42,8 +42,9 @@ const ServiceCard = ({ service }) => {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };
 
-export default ServiceCard;
+export default HomeDetails;

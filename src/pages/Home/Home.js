@@ -1,54 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Bannar from '../Bannar/Bannar';
 import Services from '../Services/Services';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 import About from '../About/About';
+import Info from '../Info/Info';
+import HomeDetails from './HomeDetails';
 
 const Home = () => {
-    const { servicesHome } = useLoaderData()
+    const [services, setServices] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/home')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
 
     return (
         <div className=' max-w-screen-xl mx-auto'>
             <Bannar></Bannar>
             <About></About>
-            {/* <div>
-                <div className="card w-96  bg-base-100 shadow-xl mt-20">
-                    <figure>
-                        <PhotoProvider>
-                            <PhotoView src={servicesHome.image}>
-                                <img className=' h-72 w-full' src={servicesHome.image} alt="Shoes" />
-                            </PhotoView>
-                        </PhotoProvider>
-                    </figure>
-                    <div className="card-body">
-                        <h2 className="card-title">
-                            {servicesHome.name}
-                        </h2>
-                        <p>
-                            {
-                                servicesHome.details.length > 100 ?
-                                    <>
-                                        <p>{servicesHome.details.slice(0, 100) + '...'} </p>
-                                        <Link to={`/services/${servicesHome._id}`}>
-                                            <button className='btn btn-sm btn-outline btn-info mt-2'> View Details</button>
-                                        </Link>
-                                    </>
-                                    :
-                                    <p>{servicesHome.details}</p>
-                            }
-                        </p>
-                        <div className="card-actions justify-end">
 
-                            <p><span className='font-bold text-blue-600 '>Price:</span> {servicesHome.price}</p>
-                            <p><span className='font-bold text-blue-600 ' >Rating:</span> {servicesHome.rating}</p>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
+            <div className='text-center mt-32'>
+                <h1 className='text-2xl text-orange-400 italic'>please, do this</h1>
 
-            <Services></Services>
+                <h1 className='text-2xl font-bold italic' >CAKE MY DAY</h1>
+            </div>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                {
+                    services.map(service => <HomeDetails
+                        key={service._id}
+                        service={service}
+                    ></HomeDetails>
+
+
+
+                    )
+                }
+            </div>
+            <div className='text-center mt-20'>
+                <Link to='/services'>  <button className='btn btn-primary'>See All</button></Link>
+            </div>
+
+            <Info></Info>
         </div>
     );
 };
