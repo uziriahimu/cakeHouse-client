@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 
@@ -12,6 +13,7 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/review'>Reviews</Link></li>
+        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         {
             user?.email ?
                 <>
@@ -47,6 +49,24 @@ const Header = () => {
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
+            </div>
+
+            {/* <div className="navbar-end mr-5 text-2xl">
+
+                
+
+            </div> */}
+            <div className='navbar-end  flex flex-row'>
+                <p><small className='mr-2'>{user?.displayName}</small></p>
+                <FaUser></FaUser>
+                {
+                    user?.photoURL ?
+                        <img style={{ height: '40px' }} src={user?.photoURL} alt="" />
+                        :
+                        <FaUser></FaUser>
+
+                }
+
             </div>
         </div>
     );

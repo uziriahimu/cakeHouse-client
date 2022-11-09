@@ -7,7 +7,7 @@ const Footer = () => {
                 <div>
                     <img className='w-2/5 rounded-lg' src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE-PUEVSr_RGpEWOGHY44Q49JpNp-Gzjo0nQ&usqp=CAU'} alt="" />
                     <p className="font-bold">
-                        ACME Industries Ltd. <br />Providing reliable tech since 2010
+                        Cake House <br />Providing reliable Home Made cakes since 2015
                     </p>
                     <p>Copyright © 2022 - All right reserved</p>
                 </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { createUser, googleSignIn } = useContext(AuthContext)
     const [user, setUser] = useState({})
 
     const handleSubmit = event => {
@@ -25,9 +25,18 @@ const SignUp = () => {
 
 
     }
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+            })
+            .catch(error => console.log(error))
+
+    }
 
     return (
-        <div className='w-1/2 mx-auto border rounded-lg p-5' >
+        <div className='w-1/2 mx-auto border rounded-lg p-5 bg-gray-100' >
             <form onSubmit={handleSubmit} className="card-body  bg-slate-300 mb-3 rounded">
                 <div className="form-control">
                     <label className="label">
@@ -53,6 +62,11 @@ const SignUp = () => {
                 </div>
             </form>
             <p className='text-center'>Already have an account? <Link className='text-orange-600 font-bold' to="/login">Login</Link> </p>
+
+            <div className='text-center'>
+                <button className='btn btn-outline btn-error mt-5 px-32' onClick={handleGoogleSignIn}>Google</button>
+
+            </div>
         </div>
     );
 };
