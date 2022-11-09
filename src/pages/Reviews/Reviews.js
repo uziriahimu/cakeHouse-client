@@ -13,7 +13,9 @@ const Reviews = () => {
     }, [])
     return (
         <div>
-            <Link to='/addreview'><button className='btn btn-warning'>Add Reviews</button></Link>
+            <div className='text-center mb-10'>
+                <Link to='/addreview'><button className='btn btn-warning'>Add Reviews</button></Link>
+            </div>
             <div className=' max-w-screen-xl mx-auto'>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">
