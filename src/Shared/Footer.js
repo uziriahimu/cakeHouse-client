@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-10 bg-black text-primary-content ">
+            <footer className="footer footer-center p-10 bg-black text-primary-content mt-36 ">
                 <div>
                     <img className='w-2/5 rounded-lg' src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE-PUEVSr_RGpEWOGHY44Q49JpNp-Gzjo0nQ&usqp=CAU'} alt="" />
                     <p className="font-bold">

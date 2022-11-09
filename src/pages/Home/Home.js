@@ -1,12 +1,12 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import Bannar from '../Bannar/Bannar';
 import Services from '../Services/Services';
 
 const Home = () => {
     return (
-        <div>
+        <div className=' max-w-screen-xl mx-auto'>
             <Bannar></Bannar>
-            <h2>Home</h2>
             <Services></Services>
         </div>
     );

@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceCard = ({ service }) => {
 
@@ -6,14 +9,26 @@ const ServiceCard = ({ service }) => {
 
     return (
         <div>
-            <div className="card w-96  bg-base-100 shadow-xl">
-                <figure><img className=' h-72 w-full' src={image} alt="Shoes" /></figure>
+            <div className="card w-96  bg-base-100 shadow-xl mt-20">
+                <figure>
+                    <PhotoProvider>
+                        <PhotoView src={image}>
+                            <img className=' h-72 w-full' src={image} alt="Shoes" />
+                        </PhotoView>
+                    </PhotoProvider>
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {name}
-                        {/* <div className="badge badge-secondary">NEW</div> */}
                     </h2>
-                    <p>{details}</p>
+                    <p>
+                        {
+                            details.length > 100 ?
+                                <p>{details.slice(0, 100) + '...'} <Link to={`/services/${_id}`}>Read More</Link> </p>
+                                :
+                                <p>{details}</p>
+                        }
+                    </p>
                     <div className="card-actions justify-end">
 
                         <p><span className='font-bold text-blue-600 '>Price:</span> {price}</p>
