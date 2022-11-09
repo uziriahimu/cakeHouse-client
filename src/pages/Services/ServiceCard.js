@@ -24,7 +24,12 @@ const ServiceCard = ({ service }) => {
                     <p>
                         {
                             details.length > 100 ?
-                                <p>{details.slice(0, 100) + '...'} <Link to={`/services/${_id}`}>Read More</Link> </p>
+                                <>
+                                    <p>{details.slice(0, 100) + '...'} </p>
+                                    <Link to={`/services/${_id}`}>
+                                        <button className='btn btn-sm btn-outline btn-info mt-2'> View Details</button>
+                                    </Link>
+                                </>
                                 :
                                 <p>{details}</p>
                         }
