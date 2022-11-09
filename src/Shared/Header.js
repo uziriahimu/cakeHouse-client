@@ -58,7 +58,6 @@ const Header = () => {
             </div> */}
             <div className='navbar-end  flex flex-row'>
                 <p><small className='mr-2'>{user?.displayName}</small></p>
-                <FaUser></FaUser>
                 {
                     user?.photoURL ?
                         <img style={{ height: '40px' }} src={user?.photoURL} alt="" />
