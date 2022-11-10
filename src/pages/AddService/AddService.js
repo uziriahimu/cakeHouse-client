@@ -11,26 +11,26 @@ const AddService = () => {
         const rating = form.rating.value
         const details = form.details.value
 
-        const service = {
-            name: name,
-            image: image,
-            price: price,
-            rating: rating,
-            details: details
+        const services = {
+            name,
+            image,
+            price,
+            rating,
+            details
 
         }
-        fetch('https://service-provider-server.vercel.app/services', {
+        fetch('http://localhost:5000/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(service)
+            body: JSON.stringify(services)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('service placed successfully')
+                    alert('services placed successfully')
                     form.reset();
 
                 }
