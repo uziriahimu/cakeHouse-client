@@ -1,7 +1,9 @@
 import React from 'react';
+import { toast } from 'react-toastify';
+import useTitle from '../../hook/useTitle';
 
 const AddService = () => {
-
+    useTitle('Add service')
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
@@ -30,7 +32,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('services placed successfully')
+                    toast.success('services placed successfully')
                     form.reset();
 
                 }

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../hook/useTitle';
 import About from '../About/About';
 import Bannar from '../Bannar/Bannar';
 import Info from '../Info/Info';
 import ServiceCard from './ServiceCard';
 
 const Services = () => {
+    useTitle('Services')
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('https://service-provider-server.vercel.app/services')

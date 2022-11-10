@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const MyReviewDetails = ({ review, handleDelete }) => {
-    const { _id, serviceName, email, text, rating } = review
+const MyReviewDetails = ({ review, handleDelete, handleUpdate }) => {
+    const { _id, serviceName, email, text, rating, status } = review
     return (
         <tr>
             <td>{serviceName}</td>
@@ -16,10 +16,15 @@ const MyReviewDetails = ({ review, handleDelete }) => {
 
                 </label>
             </th>
-            <th>
+            {/* <th>
                 <label>
                     <button className='btn btn-ghost'>Edit</button>
                 </label>
+            </th> */}
+            <th>
+                <button
+                    onClick={() => handleUpdate(_id)}
+                    className="btn btn-ghost btn-xs">{status ? status : 'pending'}</button>
             </th>
         </tr>
     );

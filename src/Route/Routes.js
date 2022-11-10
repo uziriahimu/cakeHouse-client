@@ -30,6 +30,7 @@ export const router = createBrowserRouter([
 
 
             },
+
             {
                 path: '/services',
                 element: <Services></Services>

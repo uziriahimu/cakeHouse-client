@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
+import useTitle from '../../hook/useTitle';
 
 const AddReviews = () => {
     const { user } = useContext(AuthContext)
     const { _id, name } = useLoaderData()
 
-
+    useTitle('Add Review')
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
@@ -36,7 +38,7 @@ const AddReviews = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review placed successfully')
+                    toast.info('review placed successfully')
                     form.reset();
 
                 }
@@ -80,7 +82,7 @@ const AddReviews = () => {
                         <label className="label">
                             <span className="label-text">Rating</span>
                         </label>
-                        <input type="number" name='rating' placeholder="Rating" className="input input-bordered" />
+                        <input type="text" name='rating' placeholder="Rating" className="input input-bordered" />
 
                     </div>
                     <div className="form-control mt-6">

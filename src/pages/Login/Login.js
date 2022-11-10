@@ -1,10 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/AuthProvider';
+import useTitle from '../../hook/useTitle';
 
 const Login = () => {
     const { logIn, googleSignIn } = useContext(AuthContext)
+    useTitle('Login')
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
+
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
@@ -14,7 +21,16 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                if (user.email) {
+                    navigate(from, { replace: true });
+                }
+                else {
+
+                    toast.error('Something went wrong.')
+                }
                 form.reset();
+
+
             })
             .catch(error => console.log(error))
 
@@ -26,6 +42,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
 

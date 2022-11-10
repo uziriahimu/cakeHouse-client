@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import ReviewDetails from './ReviewDetails';
 
 const Reviews = () => {
-
+    useTitle('Review')
     const [reviews, setReviews] = useState([])
     // const { _id } = useLoaderData()
 
@@ -14,9 +15,7 @@ const Reviews = () => {
     }, [])
     return (
         <div>
-            {/* <div className='text-center mb-10'>
-                <Link to={'/addreview'}><button className='btn btn-warning'>Add Reviews</button></Link>
-            </div> */}
+
             <div className=' max-w-screen-xl mx-auto'>
                 <div className="overflow-x-auto w-full">
                     <table className="table w-full">

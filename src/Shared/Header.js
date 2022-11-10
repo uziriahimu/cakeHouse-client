@@ -14,11 +14,12 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/review'>Reviews</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/myreviews'>My Reviews</Link></li>
+        <li className='font-semibold'><Link to='/addservices'>Add service</Link></li>
         {
             user?.email ?
                 <>
-                    <li className='font-semibold'><Link to='/myreviews'>My Reviews</Link></li>
-                    <li className='font-semibold'><Link to='/addservices'>Add service</Link></li>
+
                     <li className='font-semibold'> <button onClick={handleSignOut} className='btn-ghost'>sign out</button></li>
                 </>
                 :

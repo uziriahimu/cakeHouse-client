@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hook/useTitle';
 import About from '../About/About';
 import Bannar from '../Bannar/Bannar';
 import Info from '../Info/Info';
@@ -7,6 +8,7 @@ import Services from '../Services/Services';
 import HomeDetails from './HomeDetails';
 
 const Home = () => {
+    useTitle('Home')
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('https://service-provider-server.vercel.app/home')
