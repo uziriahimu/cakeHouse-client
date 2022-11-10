@@ -37,7 +37,7 @@ const SignUp = () => {
     }
 
     return (
-        <div className='w-1/2 mx-auto border rounded-lg p-5 bg-gray-100' >
+        <div className=' border rounded-lg p-5  bg-gray-100 lg:w-1/2 mx-auto' >
             <form onSubmit={handleSubmit} className="card-body  bg-slate-300 mb-3 rounded">
                 <div className="form-control">
                     <label className="label">

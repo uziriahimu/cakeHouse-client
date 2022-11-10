@@ -5,7 +5,7 @@ const SingleService = () => {
     const singleservice = useLoaderData()
     return (
         <div>
-            <div className="card w-1/2 mx-auto  bg-base-100 shadow-xl mt-20">
+            <div className="card w-full bg-base-100 shadow-xl mt-20 lg:w-1/2 mx-auto">
                 <figure>
 
                     <img className=' w-full' src={singleservice.image} alt="Shoes" />
