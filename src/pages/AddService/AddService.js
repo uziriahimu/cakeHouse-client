@@ -1,42 +1,36 @@
-import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthProvider';
+import React from 'react';
 
-const AddReviews = () => {
-    const { user } = useContext(AuthContext)
-    const { _id, name } = useLoaderData()
-
+const AddService = () => {
 
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target
-        const Cname = form.name.value
-        const photoURL = form.photoURL.value
-        const email = form.email.value
-        const text = form.text.value
+        const name = form.name.value
+        const image = form.image.value
+        const price = form.price.value
         const rating = form.rating.value
+        const details = form.details.value
 
-        const review = {
-            service: _id,
-            serviceName: name,
-            customer: Cname,
-            email,
-            text,
-            rating,
-            photoURL
+        const service = {
+            name: name,
+            image: image,
+            price: price,
+            rating: rating,
+            details: details
+
         }
-        fetch('https://service-provider-server.vercel.app/reviews', {
+        fetch('https://service-provider-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(service)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review placed successfully')
+                    alert('service placed successfully')
                     form.reset();
 
                 }
@@ -53,38 +47,38 @@ const AddReviews = () => {
                         <label className="label">
                             <span className="label-text">Name</span>
                         </label>
-                        <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                        <input type="text" name='name' placeholder="name of service" className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Image</span>
                         </label>
-                        <input type="text" name='photoURL' defaultValue={user?.photoURL} placeholder="photoURL" className="input input-bordered" />
+                        <input type="text" name='image' placeholder="image of service" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Text</span>
+                            <span className="label-text">Details</span>
                         </label>
-                        <input type="text-area" name='text' placeholder="Review" className="input input-bordered" />
+                        <input type="text-area" name='details' placeholder="Description" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text">Price</span>
                         </label>
-                        <input type="email" name='email' defaultValue={user?.email} placeholder="Email" className="input input-bordered" />
+                        <input type="text" name='price' placeholder="Add Price" className="input input-bordered" />
 
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Rating</span>
                         </label>
-                        <input type="number" name='rating' placeholder="Rating" className="input input-bordered" />
+                        <input type="text" name='rating' placeholder="Rating" className="input input-bordered" />
 
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn bg-purple-400 border-none" type="submit" value="Add Review" />
+                        <input className="btn bg-purple-400 border-none" type="submit" value="Add Service" />
                     </div>
                 </form>
 
@@ -95,4 +89,4 @@ const AddReviews = () => {
     );
 };
 
-export default AddReviews;
+export default AddService;

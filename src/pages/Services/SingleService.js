@@ -26,9 +26,7 @@ const SingleService = () => {
                         <p><span className='font-bold text-blue-600 ' >Rating:</span> {singleservice.rating}</p>
                     </div>
                 </div>
-                <Link to={`/reviews/${singleservice._id}`}>
-                    <button className="btn btn-primary">Reviews</button>
-                </Link>
+
             </div>
         </div>
     );

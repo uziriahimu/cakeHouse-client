@@ -11,7 +11,7 @@ import HomeDetails from './HomeDetails';
 const Home = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/home')
+        fetch('https://service-provider-server.vercel.app/home')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

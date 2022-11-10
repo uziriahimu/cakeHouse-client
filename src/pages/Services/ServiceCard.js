@@ -22,19 +22,24 @@ const ServiceCard = ({ service }) => {
                     <h2 className="card-title">
                         {name}
                     </h2>
-                    <p>
-                        {
-                            details.length > 100 ?
-                                <>
-                                    <p>{details.slice(0, 100) + '...'} </p>
-                                    <Link to={`/services/${_id}`}>
-                                        <button className='btn btn-sm btn-outline btn-info mt-2'> View Details</button>
-                                    </Link>
-                                </>
-                                :
-                                <p>{details}</p>
-                        }
-                    </p>
+                    <div className=" card-actions justify-end">
+                        <p>
+                            {
+                                details.length > 100 ?
+                                    <>
+                                        <p>{details.slice(0, 100) + '...'} </p>
+                                        <Link to={`/services/${_id}`}>
+                                            <button className='btn btn-sm btn-outline btn-info mt-2'> View Details</button>
+                                        </Link>
+                                    </>
+                                    :
+                                    <p>{details}</p>
+                            }
+                        </p>
+                        <Link to={`/reviews/${_id}`}>
+                            <button className="btn btn-outline btn-warning">Add Review</button>
+                        </Link>
+                    </div>
                     <div className="card-actions justify-end">
 
                         <p><span className='font-bold text-blue-600 '>Price:</span> {price}</p>
