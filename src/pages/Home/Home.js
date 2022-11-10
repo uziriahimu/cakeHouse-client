@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import Bannar from '../Bannar/Bannar';
-import Services from '../Services/Services';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from 'react-router-dom';
 import About from '../About/About';
+import Bannar from '../Bannar/Bannar';
 import Info from '../Info/Info';
+import Services from '../Services/Services';
 import HomeDetails from './HomeDetails';
 
 const Home = () => {
@@ -15,12 +13,10 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-
     return (
         <div className=' max-w-screen-xl mx-auto'>
             <Bannar></Bannar>
             <About></About>
-
             <div className='text-center mt-32'>
                 <h1 className='text-2xl text-orange-400 italic'>please, do this</h1>
 
@@ -33,15 +29,12 @@ const Home = () => {
                         service={service}
                     ></HomeDetails>
 
-
-
                     )
                 }
             </div>
             <div className='text-center mt-20'>
                 <Link to='/services'>  <button className='btn btn-primary'>See All</button></Link>
             </div>
-
             <Info></Info>
         </div>
     );

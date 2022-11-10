@@ -7,22 +7,33 @@ const MyReview = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`https://service-provider-server.vercel.app/reviews?email=${user?.email}`, {
-            // headers: {
-            //     authorization: `Bearer ${localStorage.getItem('genius-token')}`
-            // }
-        })
-            // .then(res => {
-            //     if (res.status === 401 || res.status === 403) {
-            //         return logOut();
-            //     }
-            //     return res.json();
-            // })
+        fetch(`https://service-provider-server.vercel.app/reviews?email=${user?.email}`)
+
             .then(res => res.json())
             .then(data => {
                 setReviews(data);
             })
     }, [user?.email, logOut])
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure, you want to cancel this order');
+        if (proceed) {
+            fetch(`https://service-provider-server.vercel.app/myreviews/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        alert('deleted successfully');
+                        const remaining = reviews.filter(rev => rev._id !== id);
+                        setReviews(remaining);
+                    }
+                })
+        }
+    }
+
+
     return (
         <div>
             <h2 className="text-5xl">You have {reviews.length} reviews</h2>
@@ -49,6 +60,7 @@ const MyReview = () => {
 
                                 key={review._id}
                                 review={review}
+                                handleDelete={handleDelete}
                             ></MyReviewDetails>
 
                             )

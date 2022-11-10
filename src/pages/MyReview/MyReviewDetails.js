@@ -1,7 +1,8 @@
 import React from 'react';
+import { FaTrashAlt } from 'react-icons/fa';
 
-const MyReviewDetails = ({ review }) => {
-    const { serviceName, email, text, rating } = review
+const MyReviewDetails = ({ review, handleDelete }) => {
+    const { _id, serviceName, email, text, rating } = review
     return (
         <tr>
             <td>{serviceName}</td>
@@ -10,7 +11,9 @@ const MyReviewDetails = ({ review }) => {
             <td>{rating}</td>
             <th>
                 <label>
-                    <button className='btn btn-ghost'>X</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'><FaTrashAlt className='text-red-600 text-xl' ></FaTrashAlt></button>
+
+
                 </label>
             </th>
             <th>
